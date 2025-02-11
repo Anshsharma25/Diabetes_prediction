@@ -3,106 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diabetes Prediction</title>
+    <title>AI Diabetes Prediction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Updated Background */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+            background: linear-gradient(135deg, #121212, #1b1b2f, #0f3460);
         }
-
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 350px;
-            width: 100%;
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
-
-        h2 {
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-
-        button {
-            width: 100%;
-            background: #28a745;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-
-        button:hover {
-            background: #218838;
-        }
-
-        #result {
-            margin-top: 15px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
+        /* Input Glow on Focus */
+        .input-group input:focus {
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.25);
         }
     </style>
-    <script>
-        async function predictDiabetes() {
-            const inputValues = [
-                parseFloat(document.getElementById("feature1").value),
-                parseFloat(document.getElementById("feature2").value),
-                parseFloat(document.getElementById("feature3").value),
-                parseFloat(document.getElementById("feature4").value),
-                parseFloat(document.getElementById("feature5").value),
-                parseFloat(document.getElementById("feature6").value),
-                parseFloat(document.getElementById("feature7").value),
-                parseFloat(document.getElementById("feature8").value)
-            ];
+</head>
+<body class="flex items-center justify-center min-h-screen p-6">
 
-            const response = await fetch('/predict', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ features: inputValues })
+    <!-- Container -->
+    <div class="glass-card w-full max-w-2xl p-8 text-center text-white">
+        <h2 class="text-3xl font-bold text-gray-200">🔬 AI Diabetes Predictor</h2>
+        <p class="text-gray-300 mt-2">Enter your details & get an AI-powered prediction</p>
+
+        <!-- Form -->
+        <form class="mt-6 space-y-4" id="predictionForm">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="input-group flex items-center bg-white/20 p-3 rounded-lg">
+                    <span class="text-yellow-400">📅</span>
+                    <input type="number" placeholder="Pregnancies" class="w-full bg-transparent text-white pl-3 outline-none" required>
+                </div>
+
+                <div class="input-group flex items-center bg-white/20 p-3 rounded-lg">
+                    <span class="text-red-400">🩸</span>
+                    <input type="number" placeholder="Glucose Level" class="w-full bg-transparent text-white pl-3 outline-none" required>
+                </div>
+
+                <div class="input-group flex items-center bg-white/20 p-3 rounded-lg">
+                    <span class="text-green-400">❤️</span>
+                    <input type="number" placeholder="Blood Pressure" class="w-full bg-transparent text-white pl-3 outline-none" required>
+                </div>
+
+                <div class="input-group flex items-center bg-white/20 p-3 rounded-lg">
+                    <span class="text-purple-400">💧</span>
+                    <input type="number" placeholder="Skin Thickness" class="w-full bg-transparent text-white pl-3 outline-none" required>
+                </div>
+
+                <div class="input-group flex items-center bg-white/20 p-3 rounded-lg">
+                    <span class="text-blue-400">💉</span>
+                    <input type="number" placeholder="Insulin Level" class="w-full bg-transparent text-white pl-3 outline-none" required>
+                </div>
+
+                <div class="input-group flex items-center bg-white/20 p-3 rounded-lg">
+                    <span class="text-orange-400">⚖️</span>
+                    <input type="number" placeholder="BMI (kg/m²)" class="w-full bg-transparent text-white pl-3 outline-none" required>
+                </div>
+
+                <div class="input-group flex items-center bg-white/20 p-3 rounded-lg">
+                    <span class="text-pink-400">🧬</span>
+                    <input type="number" placeholder="Diabetes Pedigree Function" class="w-full bg-transparent text-white pl-3 outline-none" required>
+                </div>
+
+                <div class="input-group flex items-center bg-white/20 p-3 rounded-lg">
+                    <span class="text-teal-400">🎂</span>
+                    <input type="number" placeholder="Age" class="w-full bg-transparent text-white pl-3 outline-none" required>
+                </div>
+            </div>
+
+            <!-- Predict Button -->
+            <button type="submit" class="w-full py-3 mt-4 bg-gradient-to-r from-green-500 to-blue-600 text-white rounded-lg hover:shadow-lg transition">
+                🚀 Predict Now
+            </button>
+        </form>
+
+        <p class="text-gray-300 mt-4 text-sm">Your health data is private & secure 🔒</p>
+
+        <!-- Prediction Result -->
+        <div id="predictionResult" class="text-lg font-bold mt-4"></div>
+    </div>
+
+    <!-- JavaScript for API Request -->
+    <script>
+        document.getElementById("predictionForm").addEventListener("submit", async function (e) {
+            e.preventDefault(); // Prevent form refresh
+
+            let inputs = document.querySelectorAll("input");
+            let features = Array.from(inputs).map(input => parseFloat(input.value) || 0);
+
+            // Ensure exactly 8 values are provided
+            if (features.length !== 8) {
+                alert("Please enter all fields!");
+                return;
+            }
+
+            // Send data to Flask API
+            let response = await fetch("http://127.0.0.1:5000/predict", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ features })
             });
 
-            const result = await response.json();
-            document.getElementById("result").innerText = result.prediction !== undefined 
-                ? "Prediction: " + (result.prediction === 1 ? "Diabetic" : "Not Diabetic") 
-                : "Error: " + result.error;
-        }
+            let result = await response.json();
+            
+            // Show prediction result
+            let outputDiv = document.getElementById("predictionResult");
+            if (result.error) {
+                outputDiv.innerHTML = `<span class="text-red-400">⚠️ Error: ${result.error}</span>`;
+            } else {
+                outputDiv.innerHTML = result.prediction 
+                    ? `<span class="text-red-500">🚨 High Risk: You might have diabetes.</span>`
+                    : `<span class="text-green-500">✅ No Diabetes Detected. Stay Healthy!</span>`;
+            }
+        });
     </script>
-</head>
-<body>
-    <div class="container">
-        <h2>Diabetes Prediction</h2>
-        <p>Enter values and click Predict:</p>
-        <input type="number" id="feature1" placeholder="Pregnancies">
-        <input type="number" id="feature2" placeholder="Glucose">
-        <input type="number" id="feature3" placeholder="Blood Pressure">
-        <input type="number" id="feature4" placeholder="Skin Thickness">
-        <input type="number" id="feature5" placeholder="Insulin">
-        <input type="number" id="feature6" placeholder="BMI">
-        <input type="number" id="feature7" placeholder="Diabetes Pedigree Function">
-        <input type="number" id="feature8" placeholder="Age">
-        <button onclick="predictDiabetes()">Predict</button>
-        <p id="result"></p>
-    </div>
+
 </body>
 </html>
