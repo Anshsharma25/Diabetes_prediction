@@ -42,7 +42,7 @@ python app.py
 ```
 
 ### 4️⃣ Open the UI
-- Open `diabetes_ui.html` in your browser.
+- Open `index.html` in your browser.
 - Enter the required details.
 - Click **"Predict Now"** to get the AI prediction.
 
