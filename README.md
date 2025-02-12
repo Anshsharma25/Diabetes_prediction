@@ -28,7 +28,7 @@ This project is a **web-based AI Diabetes Prediction system** that allows users 
 ## 🛠️ Installation & Setup
 ### 1️⃣ Clone the Repository
 ```sh
-git clone https://github.com/your-username/diabetes-prediction.git
+git clone https://github.com/Anshsharma25/Diabetes_prediction.git
 cd diabetes-prediction
 ```
 
