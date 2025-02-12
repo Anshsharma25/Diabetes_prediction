@@ -13,14 +13,13 @@ This project is a **web-based AI Diabetes Prediction system** that allows users 
 ## 📂 Project Structure
 ```
 /diabetes-prediction
-│── /static              # (Optional) Static assets (CSS, JS, Images)
-│── /templates           # HTML frontend files
+│── /templates           # HTML frontend files with css inline code 
 │── app.py               # Flask API backend
 │── diabetes_model.pkl   # Trained ML model (saved using Joblib)
 │── scaler.pkl           # Scaler for input features
 │── README.md            # Documentation
 │── requirements.txt     # Python dependencies
-│── diabetes_ui.html     # Main HTML UI file
+│── index.html           # Main HTML UI file
 ```
 
 ---
