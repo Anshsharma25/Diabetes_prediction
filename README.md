@@ -10,6 +10,7 @@ This project is a **web-based AI Diabetes Prediction system** that allows users 
 
 ---
 
+
 ## 📂 Project Structure
 ```
 /diabetes-prediction
