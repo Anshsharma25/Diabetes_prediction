@@ -1,4 +1,4 @@
-# AI Diabetes Prediction
+# AI Diabetes Prediction.
 
 This project is a **web-based AI Diabetes Prediction system** that allows users to enter their health details and receive an AI-powered prediction of whether they have diabetes. The model is built using **Flask (Backend), TailwindCSS (Frontend), and Machine Learning (Decision Tree Algorithm trained with the Pima Indians Diabetes Dataset).**
 
